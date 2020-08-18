@@ -4,6 +4,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.ticker as plticker
 from cv2 import cv2
+import random
 
 try:
     from PIL import Image
@@ -11,33 +12,34 @@ except ImportError:
     import Image
 
 # Open image file
-image = Image.open('windows\imgEx3.jpg')
+image = Image.open('windows\imgEx2.jpg')
 (new_width, new_height) = (1280, 720)
 image.resize((round(new_width),round(new_height)),Image.ANTIALIAS)
 print(image.size)
 
 my_dpi=100.
 
-img = cv2.imread('windows\imgEx3.jpg', cv2.IMREAD_UNCHANGED)
-
-# Set up figure
-fig=plt.figure(figsize=(float(image.size[0])/my_dpi,float(image.size[1])/my_dpi),dpi=my_dpi)
-
-ax=fig.add_subplot(111)
-
-# Remove whitespace from around the image
-fig.subplots_adjust(left=0,right=1,bottom=0,top=1)
-
+img = cv2.imread('windows\imgEx2.jpg', cv2.IMREAD_UNCHANGED)
 
 dimensions = img.shape
 height = img.shape[0]
 width = img.shape[1]
 channels = img.shape[2]
 
+
+# Set up figure
+fig = plt.figure(figsize=(float(image.size[0])/my_dpi,float(image.size[1])/my_dpi),dpi=my_dpi)
+
+ax = fig.add_subplot(111)
+
+# Remove whitespace from around the image
+fig.subplots_adjust(left=0,right=1,bottom=0,top=1)
+
 print('Image Dimension    : ',dimensions)
 print('Image Height       : ',height)
 print('Image Width        : ',width)
 print('Number of Channels : ',channels)
+
 # Set the gridding interval: here we use the major tick interval
 x_interval = width/5
 y_interval = height/3
@@ -57,11 +59,12 @@ ax.imshow(image)
 nx=abs(int(float(ax.get_xlim()[1]-ax.get_xlim()[0])/float(x_interval)))
 ny=abs(int(float(ax.get_ylim()[1]-ax.get_ylim()[0])/float(y_interval)))
 
-# Save the figure
-fig.savefig('exemplo_grid.jpg')
+x = random.randint(0,width)
+y = random.randint(0,height)
 
-x = 300
-y = 4000
+point = plt.Circle((x, y), 10, color='r')
+ax2 = fig.gca()
+ax2.add_artist(point)
 
 if x <= image.size[0] * 1/5:
     print('muito a esquerda')
@@ -86,3 +89,6 @@ elif y <= image.size[1] * 2/3:
 
 else:
     print('embaixo')    
+
+# Save the figure
+fig.savefig('exemplo_grid.jpg')
