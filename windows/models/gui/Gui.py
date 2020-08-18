@@ -69,12 +69,12 @@ class Gui:
             self.filename = askopenfilename(
                 initialdir=os.path.join("~", "Images"),
                 title="Selecione um Arquivo",
-                filetypes=(("Arquivos jpeg", "*.jpg"), ("Arquivos png", "*.png")),
+                filetypes=[("Arquivos jpeg", "*.jpg")],
             )
             if not self.filename:
                 raise FileNotFoundError
 
-            if not self.filename.endswith((".jpg", ".png")):
+            if not self.filename.endswith(".jpg"):
                 raise ValueError
 
         except FileNotFoundError:
