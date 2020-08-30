@@ -1,7 +1,8 @@
-# from matplotlib import pyplot as plt
-# from matplotlib import ticker as plticker
+import matplotlib
 
-import matplotlib.pyplot as plt
+matplotlib.use("Qt5Agg")
+
+import pylab as plt
 import matplotlib.ticker as plticker
 from cv2 import cv2
 import random
@@ -27,9 +28,7 @@ class Req:
 
     def open_image(self):
         self.image = Image.open(self.image_path)
-        self.image.resize(
-            ((round(self.width)), round(self.height)), Image.ANTIALIAS
-        )
+        self.image.resize(((round(self.width)), round(self.height)), Image.ANTIALIAS)
 
     def dimensions(self):
         img = cv2.imread(self.image_path, cv2.IMREAD_UNCHANGED)
@@ -39,7 +38,10 @@ class Req:
     def process_image(self):
 
         self.fig = plt.figure(
-            figsize=(float(self.image.size[0] / self.dpi), float(self.image.size[1] / self.dpi)),
+            figsize=(
+                float(self.image.size[0] / self.dpi),
+                float(self.image.size[1] / self.dpi),
+            ),
             dpi=self.dpi,
         )
 
@@ -71,17 +73,22 @@ class Req:
 
         return x, y
 
-    def req(self, x, y):
+    def req(self):
+        x, y = self.random_circle()
+
         for i in range(1, self.columns + 1):
             if x <= self.image.size[0] * i / self.columns:
-                print(self.messages()["x"][i])
-                break
- 
-        for i in range(1, self.rows + 1):
-            if y <= self.image.size[1] * i / self.rows:
-                print(self.messages()["y"][i])
+                x_position = self.messages()["x"][i]
                 break
 
+        for i in range(1, self.rows + 1):
+            if y <= self.image.size[1] * i / self.rows:
+                y_position = self.messages()["y"][i]
+                break
+
+        return (x_position, y_position)
+
+    def show(self):
         self.fig.show()
 
     @staticmethod
