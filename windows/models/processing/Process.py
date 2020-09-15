@@ -1,11 +1,17 @@
 from models.req.Req import Req
+from models.ssd_mobilenet.SsdMobileNet import SsdMobileNet
 
 class Process:
     def __init__(self, path):
-        self._r = Req(path)
+        self.mobilenet = SsdMobileNet(path)
     
     def run(self):
-        return self._r.req()
+        objects = self.mobilenet.run()
+        return ("X", "Y")
+        # TODO: Integração do REQ
+        # return Req(objects).req()
     
+    # TODO: Integração do REQ   
     def show(self):
-        self._r.show()
+        # self._r.show()
+        pass
