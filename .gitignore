@@ -2,3 +2,4 @@
 windows/venv/
 
 *.pyc
+*.ui

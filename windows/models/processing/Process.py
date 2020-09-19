@@ -1,9 +1,15 @@
-from models.gui.exc.FileNotSelected import FileNotSelected
 from models.req.Req import Req
+from models.ssd_mobilenet.SsdMobileNet import SsdMobileNet
 
 class Process:
-    def run(self, a):
-        print(f"Processando {a}...")
-        req = Req(a)
-        x, y = req.random_circle()
-        req.req(x, y)
+    def __init__(self, path):
+        self.mobilenet = SsdMobileNet(path)
+    
+    def run(self):
+        objects = self.mobilenet.run()
+        self.req = Req(objects)
+        return self.req.req()
+     
+    def show(self):
+        self.req.show()
+
