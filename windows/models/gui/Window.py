@@ -95,7 +95,7 @@ class Ui_MainWindow(object):
             file_not_selected.wait()
             return
         
-        processing_dialog = DialogFactory(title='Processando', message='Processando arquivo')
+        processing_dialog = DialogFactory(title='Processando', message='Processando imagem')
         processing_dialog.show()
         
         self.p = Process(filename)

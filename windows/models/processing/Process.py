@@ -7,11 +7,9 @@ class Process:
     
     def run(self):
         objects = self.mobilenet.run()
-        return ("X", "Y")
-        # TODO: Integração do REQ
-        # return Req(objects).req()
-    
-    # TODO: Integração do REQ   
+        self.req = Req(objects)
+        return self.req.req()
+     
     def show(self):
-        # self._r.show()
-        pass
+        self.req.show()
+
