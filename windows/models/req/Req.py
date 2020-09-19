@@ -4,8 +4,6 @@ matplotlib.use("Qt5Agg")
 
 import pylab as plt
 import matplotlib.ticker as plticker
-from cv2 import cv2
-import random
 
 try:
     from PIL import Image
@@ -14,43 +12,31 @@ except ImportError:
 
 
 class Req:
-    def __init__(self, image_path) -> None:
-        self.image_path = image_path
-        self.width = 1280
-        self.height = 720
-        self.dpi = 100.0
-        self.columns = 5
-        self.rows = 3
+    def __init__(self, objects, precision=60.0) -> None:
+        self._image = Image.open(objects.path)
+        self._width = objects.width
+        self._height = objects.height
+        self._precision = precision
 
-        self.open_image()
-        self.dimensions()
-        self.process_image()
+        self._columns = 5
+        self._rows = 3
 
-    def open_image(self):
-        self.image = Image.open(self.image_path)
-        self.image.resize(((round(self.width)), round(self.height)), Image.ANTIALIAS)
+        self._objects = self._filter_objects(objects, precision)
+        self._process_image()
 
-    def dimensions(self):
-        img = cv2.imread(self.image_path, cv2.IMREAD_UNCHANGED)
-        self.original_height = img.shape[0]
-        self.original_width = img.shape[1]
-
-    def process_image(self):
+    def _process_image(self):
+        dpi = 100
 
         self.fig = plt.figure(
-            figsize=(
-                float(self.image.size[0] / self.dpi),
-                float(self.image.size[1] / self.dpi),
-            ),
-            dpi=self.dpi,
+            figsize=(float(self._width / dpi), float(self._height / dpi)), dpi=dpi
         )
 
         self.axes = self.fig.add_subplot(111)
 
         self.fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
 
-        x_interval = self.original_width / self.columns
-        y_interval = self.original_height / self.rows
+        x_interval = self._width / self._columns
+        y_interval = self._height / self._rows
 
         loc_x = plticker.MultipleLocator(base=x_interval)
         loc_y = plticker.MultipleLocator(base=y_interval)
@@ -61,35 +47,62 @@ class Req:
         self.axes.grid(
             which="major", axis="both", linestyle="-", color="r", linewidth=5
         )
-        self.axes.imshow(self.image)
-
-    def random_circle(self):
-        x = random.randint(0, self.original_width)
-        y = random.randint(0, self.original_height)
-
-        circle = plt.Circle((x, y), 3, color="r")
-        ax = self.fig.gca()
-        ax.add_artist(circle)
-
-        return x, y
+        self.axes.imshow(self._image)
 
     def req(self):
-        x, y = self.random_circle()
+        output = []
+        for obj in self._objects:
+            self.draw_box(obj)
 
-        for i in range(1, self.columns + 1):
-            if x <= self.image.size[0] * i / self.columns:
-                x_position = self.messages()["x"][i]
-                break
+            x_desc = self._get_position(obj.x, "x")
+            y_desc = self._get_position(obj.y, "y")
 
-        for i in range(1, self.rows + 1):
-            if y <= self.image.size[1] * i / self.rows:
-                y_position = self.messages()["y"][i]
-                break
+            message = f"Objeto {obj}: está {x_desc} e {y_desc}"
+            output.append(message)
 
-        return (x_position, y_position)
+        return output
+
+    def draw_box(self, obj):
+        x_anchor = obj.box[1] * self._width
+        y_anchor = obj.box[2] * self._height
+        anchor = (x_anchor, y_anchor)
+
+        rect_width = obj.width * self._width
+        rect_height = (obj.height * self._height) * -1
+        rect = plt.Rectangle(anchor, rect_width, rect_height, fill=False, lw=3)
+
+        ax = self.fig.gca()
+        ax.add_artist(rect)
+
+    def _get_position(self, coord, axis):
+        if axis == "x":
+            direction = self._columns
+            dimension = self._width
+
+        elif axis == "y":
+            direction = self._rows
+            dimension = self._height
+        else:
+            return
+
+        for i in range(1, direction + 1):
+            if coord * dimension <= dimension * i / direction:
+                return self.messages()[axis][i]
 
     def show(self):
         self.fig.show()
+
+    @staticmethod
+    def _filter_objects(detected_objects, desired_precision):
+        valid_objects = []
+        objects = detected_objects.objects
+
+        for obj in objects:
+            obj_precision = round(obj.score * 100, 3)
+            if obj_precision >= desired_precision:
+                valid_objects.append(obj)
+
+        return valid_objects
 
     @staticmethod
     def messages():

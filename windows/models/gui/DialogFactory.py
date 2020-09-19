@@ -12,7 +12,7 @@ class DialogFactory:
         self.msg = QtWidgets.QMessageBox()
         
         if type == None:
-            self.msg.setIcon(QtWidgets.QMessageBox.Information)
+            self.set_icon('info')
         else:
             self.set_icon(type)
         
