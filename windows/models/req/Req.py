@@ -2,13 +2,16 @@ import matplotlib
 
 matplotlib.use("Qt5Agg")
 
-import pylab as plt
+import matplotlib.pyplot as plt
 import matplotlib.ticker as plticker
+from random import choice
 
 try:
     from PIL import Image
 except ImportError:
     import Image
+
+COLORS = ["#00ff00", "#ff00ff", "#00ffff", "#ff9900"]
 
 
 class Req:
@@ -45,36 +48,58 @@ class Req:
         self.axes.yaxis.set_major_locator(loc_y)
 
         self.axes.grid(
-            which="major", axis="both", linestyle="-", color="r", linewidth=5
+            which="major", axis="both", linestyle="-", color="r", linewidth=3
         )
         self.axes.imshow(self._image)
 
     def req(self):
-        output = []
+        descriptions = []
         for obj in self._objects:
-            self.draw_box(obj)
+            self.draw_obj(obj)
 
-            x_desc = self._get_position(obj.x, "x")
-            y_desc = self._get_position(obj.y, "y")
+            x_desc = self._get_description_by_coord(obj.x, axis="x")
+            y_desc = self._get_description_by_coord(obj.y, axis="y")
 
-            message = f"Objeto {obj}: está {x_desc} e {y_desc}"
-            output.append(message)
+            object_description = {"name": str(obj), "x": x_desc, "y": y_desc}
+            descriptions.append(object_description)
 
-        return output
+        return self._format_descriptions(descriptions)
 
-    def draw_box(self, obj):
+    def draw_obj(self, obj):
+        color = choice(COLORS)
+        x_center = obj.x * self._width
+        y_center = obj.y * self._height
+
+        circle = plt.Circle((x_center, y_center), radius=5, color=color)
+
         x_anchor = obj.box[1] * self._width
         y_anchor = obj.box[2] * self._height
         anchor = (x_anchor, y_anchor)
 
         rect_width = obj.width * self._width
         rect_height = (obj.height * self._height) * -1
-        rect = plt.Rectangle(anchor, rect_width, rect_height, fill=False, lw=3)
+        rect = plt.Rectangle(
+            anchor, rect_width, rect_height, fill=False, lw=5, color=color, label=obj
+        )
+
+        x_top = obj.box[1] * self._width
+        y_top = obj.box[0] * self._height
 
         ax = self.fig.gca()
+        ax.add_artist(circle)
         ax.add_artist(rect)
+        ax.annotate(
+            obj,
+            (x_top + 3, y_top - 5),
+            color="black",
+            backgroundcolor=color,
+            weight="bold",
+            fontsize=12,
+            ha="left",
+            va="center",
+        )
 
-    def _get_position(self, coord, axis):
+    def _get_description_by_coord(self, coord, axis):
         if axis == "x":
             direction = self._columns
             dimension = self._width
@@ -87,7 +112,7 @@ class Req:
 
         for i in range(1, direction + 1):
             if coord * dimension <= dimension * i / direction:
-                return self.messages()[axis][i]
+                return self._get_description()[axis][i]
 
     def show(self):
         self.fig.show()
@@ -105,7 +130,7 @@ class Req:
         return valid_objects
 
     @staticmethod
-    def messages():
+    def _get_description():
         return {
             "x": {
                 1: "muito a esquerda",
@@ -116,3 +141,36 @@ class Req:
             },
             "y": {1: "em cima", 2: "no centro", 3: "embaixo"},
         }
+
+    @staticmethod
+    def _format_descriptions(objects):
+        single_object_str = 'A imagem é composta pelo objeto {} que está {}'
+        multiple_objects_str = 'A imagem é composta por pelo menos {} objetos que são:\n{}'
+        
+        number_objects = len(objects)
+        if number_objects > 1:
+            multiple_objects_list = []
+            for obj in objects:
+                name = obj['name']
+                x = obj['x']
+                y = obj['y']
+                if x == y:
+                    description = f'{name} {x}'
+                else:
+                    description = f'{name} {x} e {y}'
+                
+                multiple_objects_list.append(description)
+            
+            objects_str = '\n'.join(multiple_objects_list)
+            return multiple_objects_str.format(number_objects, objects_str)
+                    
+        elif number_objects == 1:
+            name = objects[0]['name']
+            x = objects[0]['x']
+            y = objects[0]['y']
+            if x == y:
+                description = x
+            else:
+                description = 'e '.join([x,y])
+                
+            return single_object_str.format(name, description)

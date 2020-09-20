@@ -1,198 +1,198 @@
 {
     "1": {
         "id": 1,
-        "name": "person"
+        "name": "uma pessoa"
     },
     "2": {
         "id": 2,
-        "name": "cat"
+        "name": "um gato"
     },
     "3": {
         "id": 3,
-        "name": "dog"
+        "name": "um cachorro"
     },
     "4": {
         "id": 4,
-        "name": "backpack"
+        "name": "uma mochila"
     },
     "5": {
         "id": 5,
-        "name": "umbrella"
+        "name": "um guarda-chuva"
     },
     "6": {
         "id": 6,
-        "name": "handbag"
+        "name": "uma bolsa de mão"
     },
     "7": {
         "id": 7,
-        "name": "tie"
+        "name": "uma gravata"
     },
     "8": {
         "id": 8,
-        "name": "suitcase"
+        "name": "uma maleta"
     },
     "9": {
         "id": 9,
-        "name": "bottle"
+        "name": "uma garrafa"
     },
     "10": {
         "id": 10,
-        "name": "wine glass"
+        "name": "uma garrafa de vinho"
     },
     "11": {
         "id": 11,
-        "name": "cup"
+        "name": "um copo"
     },
     "12": {
         "id": 12,
-        "name": "fork"
+        "name": "um garfo"
     },
     "13": {
         "id": 13,
-        "name": "knife"
+        "name": "uma faca"
     },
     "14": {
         "id": 14,
-        "name": "spoon"
+        "name": "uma colher"
     },
     "15": {
         "id": 15,
-        "name": "bowl"
+        "name": "uma tigela"
     },
     "16": {
         "id": 16,
-        "name": "banana"
+        "name": "uma banana"
     },
     "17": {
         "id": 17,
-        "name": "apple"
+        "name": "uma maça"
     },
     "18": {
         "id": 18,
-        "name": "sandwich"
+        "name": "uma sanduíche"
     },
     "19": {
         "id": 19,
-        "name": "orange"
+        "name": "uma laranja"
     },
     "20": {
         "id": 20,
-        "name": "broccoli"
+        "name": "um brocoli"
     },
     "21": {
         "id": 21,
-        "name": "carrot"
+        "name": "uma cenoura"
     },
     "22": {
         "id": 22,
-        "name": "hot dog"
+        "name": "um hot dog"
     },
     "23": {
         "id": 23,
-        "name": "pizza"
+        "name": "uma pizza"
     },
     "24": {
         "id": 24,
-        "name": "donut"
+        "name": "um donut"
     },
     "25": {
         "id": 25,
-        "name": "cake"
+        "name": "um bolo"
     },
     "26": {
         "id": 26,
-        "name": "chair"
+        "name": "uma cadeira"
     },
     "27": {
         "id": 27,
-        "name": "couch"
+        "name": "um sofa"
     },
     "28": {
         "id": 28,
-        "name": "potted plant"
+        "name": "um vaso de planta"
     },
     "29": {
         "id": 29,
-        "name": "bed"
+        "name": "uma cama"
     },
     "30": {
         "id": 30,
-        "name": "dining table"
+        "name": "uma mesa de jantar"
     },
     "31": {
         "id": 31,
-        "name": "toilet"
+        "name": "uma privada"
     },
     "32": {
         "id": 32,
-        "name": "tv"
+        "name": "um tv"
     },
     "33": {
         "id": 33,
-        "name": "laptop"
+        "name": "um notebook"
     },
     "34": {
         "id": 34,
-        "name": "mouse"
+        "name": "um mouse"
     },
     "35": {
         "id": 35,
-        "name": "remote"
+        "name": "um controle remoto"
     },
     "36": {
         "id": 36,
-        "name": "keyboard"
+        "name": "um teclado"
     },
     "37": {
         "id": 37,
-        "name": "cell phone"
+        "name": "um celular"
     },
     "38": {
         "id": 38,
-        "name": "microwave"
+        "name": "um micro-ondas"
     },
     "39": {
         "id": 39,
-        "name": "oven"
+        "name": "um forno"
     },
     "40": {
         "id": 40,
-        "name": "toaster"
+        "name": "uma torradeira"
     },
     "41": {
         "id": 41,
-        "name": "sink"
+        "name": "uma pia"
     },
     "42": {
         "id": 42,
-        "name": "refrigerator"
+        "name": "uma geladeira"
     },
     "43": {
         "id": 43,
-        "name": "book"
+        "name": "um livro"
     },
     "44": {
         "id": 44,
-        "name": "clock"
+        "name": "um relógio"
     },
     "45": {
         "id": 45,
-        "name": "vase"
+        "name": "um vaso"
     },
     "46": {
         "id": 46,
-        "name": "scissors"
+        "name": "uma tesoura"
     },
     "47": {
         "id": 47,
-        "name": "teddy bear"
+        "name": "um ursinho de pelúcia"
     },
     "48": {
         "id": 48,
-        "name": "hair drier"
+        "name": "um secador de cabelos"
     },
     "49": {
         "id": 49,
-        "name": "toothbrush"
+        "name": "uma escova de dentes"
     }
 }
