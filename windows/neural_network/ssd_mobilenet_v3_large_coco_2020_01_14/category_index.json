@@ -1,198 +1,82 @@
 {
     "1": {
         "id": 1,
-        "name": "uma pessoa"
+        "name": "person"
     },
     "2": {
         "id": 2,
-        "name": "um gato"
+        "name": "cat"
     },
     "3": {
         "id": 3,
-        "name": "um cachorro"
+        "name": "dog"
     },
     "4": {
         "id": 4,
-        "name": "uma mochila"
+        "name": "chair"
     },
     "5": {
         "id": 5,
-        "name": "um guarda-chuva"
+        "name": "couch"
     },
     "6": {
         "id": 6,
-        "name": "uma bolsa de mão"
+        "name": "potted plant"
     },
     "7": {
         "id": 7,
-        "name": "uma gravata"
+        "name": "bed"
     },
     "8": {
         "id": 8,
-        "name": "uma maleta"
+        "name": "dining table"
     },
     "9": {
         "id": 9,
-        "name": "uma garrafa"
+        "name": "toilet"
     },
     "10": {
         "id": 10,
-        "name": "uma garrafa de vinho"
+        "name": "tv"
     },
     "11": {
         "id": 11,
-        "name": "um copo"
+        "name": "laptop"
     },
     "12": {
         "id": 12,
-        "name": "um garfo"
+        "name": "microwave"
     },
     "13": {
         "id": 13,
-        "name": "uma faca"
+        "name": "oven"
     },
     "14": {
         "id": 14,
-        "name": "uma colher"
+        "name": "toaster"
     },
     "15": {
         "id": 15,
-        "name": "uma tigela"
+        "name": "sink"
     },
     "16": {
         "id": 16,
-        "name": "uma banana"
+        "name": "refrigerator"
     },
     "17": {
         "id": 17,
-        "name": "uma maça"
+        "name": "clock"
     },
     "18": {
         "id": 18,
-        "name": "uma sanduíche"
+        "name": "vase"
     },
     "19": {
         "id": 19,
-        "name": "uma laranja"
+        "name": "teddy bear"
     },
     "20": {
         "id": 20,
-        "name": "um brocoli"
-    },
-    "21": {
-        "id": 21,
-        "name": "uma cenoura"
-    },
-    "22": {
-        "id": 22,
-        "name": "um hot dog"
-    },
-    "23": {
-        "id": 23,
-        "name": "uma pizza"
-    },
-    "24": {
-        "id": 24,
-        "name": "um donut"
-    },
-    "25": {
-        "id": 25,
-        "name": "um bolo"
-    },
-    "26": {
-        "id": 26,
-        "name": "uma cadeira"
-    },
-    "27": {
-        "id": 27,
-        "name": "um sofa"
-    },
-    "28": {
-        "id": 28,
-        "name": "um vaso de planta"
-    },
-    "29": {
-        "id": 29,
-        "name": "uma cama"
-    },
-    "30": {
-        "id": 30,
-        "name": "uma mesa de jantar"
-    },
-    "31": {
-        "id": 31,
-        "name": "uma privada"
-    },
-    "32": {
-        "id": 32,
-        "name": "um tv"
-    },
-    "33": {
-        "id": 33,
-        "name": "um notebook"
-    },
-    "34": {
-        "id": 34,
-        "name": "um mouse"
-    },
-    "35": {
-        "id": 35,
-        "name": "um controle remoto"
-    },
-    "36": {
-        "id": 36,
-        "name": "um teclado"
-    },
-    "37": {
-        "id": 37,
-        "name": "um celular"
-    },
-    "38": {
-        "id": 38,
-        "name": "um micro-ondas"
-    },
-    "39": {
-        "id": 39,
-        "name": "um forno"
-    },
-    "40": {
-        "id": 40,
-        "name": "uma torradeira"
-    },
-    "41": {
-        "id": 41,
-        "name": "uma pia"
-    },
-    "42": {
-        "id": 42,
-        "name": "uma geladeira"
-    },
-    "43": {
-        "id": 43,
-        "name": "um livro"
-    },
-    "44": {
-        "id": 44,
-        "name": "um relógio"
-    },
-    "45": {
-        "id": 45,
-        "name": "um vaso"
-    },
-    "46": {
-        "id": 46,
-        "name": "uma tesoura"
-    },
-    "47": {
-        "id": 47,
-        "name": "um ursinho de pelúcia"
-    },
-    "48": {
-        "id": 48,
-        "name": "um secador de cabelos"
-    },
-    "49": {
-        "id": 49,
-        "name": "uma escova de dentes"
+        "name": "hair drier"
     }
 }
