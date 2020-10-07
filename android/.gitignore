@@ -28,3 +28,4 @@ out/
 /captures
 .externalNativeBuild
 .cxx
+.idea
