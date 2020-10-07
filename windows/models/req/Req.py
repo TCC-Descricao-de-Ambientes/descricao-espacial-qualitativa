@@ -125,6 +125,7 @@ class Req:
         for obj in objects:
             obj_precision = round(obj.score * 100, 3)
             if obj_precision >= desired_precision:
+                print(obj, obj_precision)
                 valid_objects.append(obj)
 
         return valid_objects
@@ -171,6 +172,6 @@ class Req:
             if x == y:
                 description = x
             else:
-                description = 'e '.join([x,y])
+                description = ' e '.join([x,y])
                 
             return single_object_str.format(name, description)
