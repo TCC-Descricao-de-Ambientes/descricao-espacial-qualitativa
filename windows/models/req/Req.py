@@ -15,7 +15,7 @@ COLORS = ["#00ff00", "#ff00ff", "#00ffff", "#ff9900"]
 
 
 class Req:
-    def __init__(self, objects, precision=60.0) -> None:
+    def __init__(self, objects, precision=70.0) -> None:
         self._image = Image.open(objects.path)
         self._width = objects.width
         self._height = objects.height

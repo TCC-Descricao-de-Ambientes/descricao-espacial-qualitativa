@@ -1,0 +1,66 @@
+{
+    "1": {
+        "id": 1,
+        "name": "bed"
+    },
+    "2": {
+        "id": 2,
+        "name": "cat"
+    },
+    "3": {
+        "id": 3,
+        "name": "chair"
+    },
+    "4": {
+        "id": 4,
+        "name": "couch"
+    },
+    "5": {
+        "id": 5,
+        "name": "dining table"
+    },
+    "6": {
+        "id": 6,
+        "name": "dog"
+    },
+    "7": {
+        "id": 7,
+        "name": "laptop"
+    },
+    "8": {
+        "id": 8,
+        "name": "microwave"
+    },
+    "9": {
+        "id": 9,
+        "name": "oven"
+    },
+    "10": {
+        "id": 10,
+        "name": "person"
+    },
+    "11": {
+        "id": 11,
+        "name": "potted plant"
+    },
+    "12": {
+        "id": 12,
+        "name": "refrigerator"
+    },
+    "13": {
+        "id": 13,
+        "name": "sink"
+    },
+    "14": {
+        "id": 14,
+        "name": "toaster"
+    },
+    "15": {
+        "id": 15,
+        "name": "toilet"
+    },
+    "16": {
+        "id": 16,
+        "name": "tv"
+    }
+}
