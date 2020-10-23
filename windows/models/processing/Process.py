@@ -1,12 +1,12 @@
 from models.req.Req import Req
-from models.neural_network.NeuralNetwork import NeuralNetwork
+from models.object_detection.ObjectDetection import ObjectDetection
 
 class Process:
     def __init__(self, path):
-        self.neural_network = NeuralNetwork(path)
+        self.object_detection = ObjectDetection(path)
     
     def run(self):
-        objects = self.neural_network.run()
+        objects = self.object_detection.run()
         self.req = Req(objects)
         return self.req.req()
      

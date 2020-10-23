@@ -43,7 +43,7 @@ PATH_TO_LABELS = os.path.join(
 )
 
 
-class NeuralNetwork:
+class ObjectDetection:
     def __init__(self, path):
         self._path = path
         self._load_category_index()
